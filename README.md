@@ -21,35 +21,31 @@ Stack implementation will be using array data structure, with the stack  rules
   <li>1. Define first he length of stack 'L'</li>
   <li>2. Define an arrayStack with the size 'L'</li>
   <li>3. Define the TopIndex < 0 which fall in -1</li>
-  <li>
+  <li>4. Operations:
   	<ul>
-  		<li>4. Operations</li>
-    	<li> - PUSH():<br>
+  		<li> <b>push(<i><String|Char|Int> element</i>):</b><br>
      	a. check first if arrayStack is empty<br>
-     	 	if not empty then <br>
+     	   if not empty then <br>
      			pre-increment the TopIndex, to make sure it self increment (increment immediately)<br>
      			arrStack[++TopIndex] = Item<p>
-     
      			OR<p>
-    
      			arrStack[TopIndex++] = Item<br>
      			TopIndex = TopIndex + 1;<p>
-    		
-       	else then<br>
+         	else then<br>
      	 		Abort
      	</li>
-     	<li> - POP():<br>
+     	<li> <b>pop():</b><br>
 	    	a. check first if arrayStack is empty<br>
 	    	 	if not empty then <br>
 	     			decrease the index<br>
 	     			arrStack[TopIndex--]<br>	
 	        	else then<br>
-	      			Abort<br>
+	      			Abort<p>
       	</li>
-     	<li>- isEmpty():<br>
-       	Check if the TopIndex is equal to -1 (TopIndex == -1 ? True : False)
+     	<li><b>isEmpty():</b><br>
+       	Check if the TopIndex is equal to -1 (TopIndex == -1 ? True : False)<p>
   		</li>
-     	<li>- isFull():<br>
+     	<li><b>isFull():</b><br>
      	Check if TopIndex == ArrayStackSize - 1 ? True : False
      	</li>
     </ul>
