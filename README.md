@@ -18,7 +18,7 @@ Stack is also known as an Abstract Data Type (ADT) that defines sets of operatio
 ## Basic Algorithm
 Stack implementation will be using array data structure, with the stack  rules
 <ul>
-  <li>1. Define first he length of stack 'L'</li>
+  <li>1. Define first the length of stack 'L'</li>
   <li>2. Define an arrayStack with the size 'L'</li>
   <li>3. Define the TopIndex < 0 which fall in -1</li>
   <li>4. Operations:
