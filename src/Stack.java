@@ -1,6 +1,7 @@
 /**
  * @(#)Stack.java
- *
+ * @Description: Implementation the very basic of Stack Data Structure, in this example the stack
+ * accept Char data types with input from the user
  *
  * @Author Plipus Tel <https://www.plipustel.com>
  * @Created May 20, 2012

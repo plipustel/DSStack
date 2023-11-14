@@ -3,8 +3,8 @@ Implemented by: Plipus Tel <a href="https://www.plipus.tel.com" target="_blank">
 
 ## What is Stack?
 Is a linear data structure in which insertion and deletion are allowed only at the top of stack 
-(or at the end). Stack follows LIFO (Last In First Out). In real world imagine stack of books, stack
-of coins, stack of disc, etc. Common operations: push(), peek(), isEmpty(), getSize(), isFull()
+(or at the end). Stack follows LIFO (Last In First Out) rule. Just like in real world stack data structure could be the stack of books, stack
+of coins, stack of money, stack of discs, etc. Common operations: push(), peek(), isEmpty(), getSize(), isFull()
   
 <ul>
   	<li>pop():  <code>O(1) complexity</code></li>
@@ -16,7 +16,7 @@ of coins, stack of disc, etc. Common operations: push(), peek(), isEmpty(), getS
 Stack is also known as an Abstract Data Type (ADT) that defines sets of operations and behavior for certain purpose.
   
 ## Basic Algorithm
-Stack implementation will be using array data structure, with the stack  rules
+Stack implementation will use the array as data structure (could also linked list, etc), with the stack rules:
 <ul>
   <li>1. Define first the length of stack 'L'</li>
   <li>2. Define an arrayStack with the size 'L'</li>
@@ -63,6 +63,6 @@ Stack implementation will be using array data structure, with the stack  rules
 </ul>
 
 
-## References
+## Author Website
 <a href="https://www.plipus.tel.com" target="_blank">https://www.plipustel.com</a>
   
