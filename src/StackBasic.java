@@ -1,7 +1,7 @@
 /**
  * @(#)Stack.java
- * @Description: Implementation the very basic of Stack Data Structure, in this example the stack
- * accept String data types.
+ * @Description: Implementation the very basic of Stack Data Structure, in this
+ *               example the stack accept String data types.
  *
  * @Author Plipus Tel <https://www.plipustel.com>
  * @Created May 20, 2012
@@ -21,12 +21,12 @@ class InitStack {
 		this.stackLength = intStackLength;
 		this.arrStack = new String[this.stackLength];
 	}
-	
+
 	public void push(String item) {
 		if (!this.isFull()) {
 			this.arrStack[++topIndex] = item;
 		} else {
-		     System.out.println("Can't push more items, stack is full, only available " + this.stackLength + " stacks");
+			System.out.println("Can't push more items, stack is full, only available " + this.stackLength + " stacks");
 
 		}
 
@@ -45,19 +45,18 @@ class InitStack {
 		// Since the returning value is boolen, we can simplify the code:
 		return this.topIndex == -1;
 	}
-	
+
 	public boolean isFull() {
 		// return (this.topIndex >= this.stackLength - 1) ? true : false;
-		
+
 		// Since the returning value is boolen, we can simplify the code:
 		return this.topIndex >= this.stackLength - 1;
 	}
-	
-	
+
 	public int getStackSize() {
 		return this.stackLength;
 	}
-	
+
 	public void getStack() {
 		if (this.isEmpty()) {
 			System.out.println("Stack is empty !");
@@ -68,7 +67,7 @@ class InitStack {
 		}
 
 	}
-	
+
 	public String peek() {
 		if (!this.isEmpty()) {
 			return this.arrStack[topIndex];
@@ -76,8 +75,7 @@ class InitStack {
 			return "No peek. Stack is empty !";
 		}
 	}
-	
-	
+
 }
 
 public class StackBasic {
@@ -88,7 +86,7 @@ public class StackBasic {
 		InitStack Book = new InitStack(5);
 		System.out.println("Stack name Book");
 		System.out.println("Book stack size: " + Book.getStackSize());
-		
+
 		/* push() operation */
 		System.out.println("+-------------------PUSH()-------------------+");
 		Book.push("Data Structure"); // arrStack[0], topIndex = 0
@@ -98,17 +96,17 @@ public class StackBasic {
 		Book.push("Artificial Intelligent"); // arrStack[4], topIndex = 4, stack is full, length 5
 		Book.push("Competitive Programming");
 		Book.getStack();
-		
+
 		/* pop() operation */
 		System.out.println("");
 		System.out.println("Stack's peek: " + Book.peek());
 		System.out.println("+-------------------POP()-------------------+");
 		Book.pop();
-		//Book.pop();
-		//Book.pop();
-		//Book.pop();
-		//Book.pop();
-		
+		// Book.pop();
+		// Book.pop();
+		// Book.pop();
+		// Book.pop();
+
 		Book.getStack();
 	}
 
