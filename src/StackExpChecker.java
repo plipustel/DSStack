@@ -13,10 +13,18 @@
  * 
  */
 
+import java.util.Scanner;
+
 public class StackExpChecker {
 	public static void main(String[] args) {
 		
-		System.out.println("Stack");
+		Scanner sc = new Scanner(System.in);
+		String expString = new String();
+				
+		System.out.print("Enter expression. Ex: [(A+B) * (C-D)]:");
+		expString = sc.nextLine();
+		
+		System.out.println("Result: " + expString);
 	}
 
 }

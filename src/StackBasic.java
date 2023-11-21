@@ -10,6 +10,10 @@
  * 
  */
 
+
+/* InitStack is also available from 'import java.util.Stack */
+import java.util.Stack;
+
 class InitStack {
 
 	int stackLength;
@@ -83,6 +87,8 @@ public class StackBasic {
 	public static void main(String[] args) {
 
 		/* initialization */
+		Stack<String> javastack = new Stack<>();
+		
 		InitStack Book = new InitStack(5);
 		System.out.println("Stack name Book");
 		System.out.println("Book stack size: " + Book.getStackSize());
@@ -106,7 +112,7 @@ public class StackBasic {
 		// Book.pop();
 		// Book.pop();
 		// Book.pop();
-
+		
 		Book.getStack();
 	}
 
