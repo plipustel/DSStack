@@ -12,7 +12,7 @@
 
 
 /* InitStack is also available from 'import java.util.Stack */
-import java.util.Stack;
+
 
 class InitStack {
 
@@ -36,12 +36,14 @@ class InitStack {
 
 	}
 
-	public void pop() {
+	public String pop() {
 		// check if stack isEmpty()
 		if (this.topIndex == -1) {
 			System.out.println("Stack is empty, not to delete, topIndex now " + this.topIndex);
+			return null;
 		} else {
-			this.arrStack[this.topIndex--] = "";
+			
+			return this.arrStack[this.topIndex--];
 		}
 	}
 
@@ -65,8 +67,8 @@ class InitStack {
 		if (this.isEmpty()) {
 			System.out.println("Stack is empty !");
 		} else {
-			for (int i = arrStack.length - 1; i >= 0; i--) {
-				System.out.println(arrStack[i]);
+			for (int i = this.arrStack.length - 1; i >= 0; i--) {
+				System.out.println(this.arrStack[i]);
 			}
 		}
 
@@ -74,7 +76,7 @@ class InitStack {
 
 	public String peek() {
 		if (!this.isEmpty()) {
-			return this.arrStack[topIndex];
+			return this.arrStack[this.topIndex];
 		} else {
 			return "No peek. Stack is empty !";
 		}
@@ -86,9 +88,6 @@ public class StackBasic {
 
 	public static void main(String[] args) {
 
-		/* initialization */
-		Stack<String> javastack = new Stack<>();
-		
 		InitStack Book = new InitStack(5);
 		System.out.println("Stack name Book");
 		System.out.println("Book stack size: " + Book.getStackSize());
@@ -100,19 +99,21 @@ public class StackBasic {
 		Book.push("Programming"); // arrStack[2], topIndex = 2
 		Book.push("Data Science"); // arrStack[3], topIndex = 3
 		Book.push("Artificial Intelligent"); // arrStack[4], topIndex = 4, stack is full, length 5
-		Book.push("Competitive Programming");
+		//Book.push("Competitive Programming");
 		Book.getStack();
-
+		
 		/* pop() operation */
 		System.out.println("");
 		System.out.println("Stack's peek: " + Book.peek());
 		System.out.println("+-------------------POP()-------------------+");
 		Book.pop();
-		// Book.pop();
-		// Book.pop();
-		// Book.pop();
-		// Book.pop();
-		
+		Book.pop();
+		Book.pop();
+		Book.pop();
+		Book.pop();
+
+		System.out.println("Book stack size: " + Book.getStackSize());
+
 		Book.getStack();
 	}
 
