@@ -1,4 +1,3 @@
-
 /**
  * @Author: Plipus Telaumbanua, S.Kom <https://www.plipustel.com>
  * @Last Modified: Nov 2023
@@ -8,125 +7,104 @@
  * 1. CASE: Expression Checker {}, [], <>, () nested braces/brackets
  * 
  * 2. RULES:
- * 
+ *    
  * 
  * 3. ALGORITHM:
- * 
+ *    
  */
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
-class StackExp {
 
-	private int topIndex = -1;
-	public ArrayList<Character> StackBraces;
-	private int stackLength;
-	public String expression;
-
-	public StackExp(String newExp) {
-		this.stackLength = newExp.length();
-		this.StackBraces = new ArrayList<>();
-		this.expression = newExp;
+class ExpStack {
+	private ArrayList<Character> ExpStack;
+	
+	boolean valid = false;
+	
+	
+	public ExpStack(String strExp) {
+		ExpStack = new ArrayList<>();
 		
-		for (int i = 0; i < this.stackLength; i++) {
-			if (this.expression.charAt(i) == '(' || this.expression.charAt(i) == '{' || this.expression.charAt(i) == '['
-					|| this.expression.charAt(i) == '<') {
-				this.push(this.expression.charAt(i));
-			} 
+		for(int i = 0; i < strExp.length(); i++) {
+			if(strExp.charAt(i) == '(' || strExp.charAt(i) == '[' || strExp.charAt(i) == '{' || strExp.charAt(i) == '<') {
+				ExpStack.add(strExp.charAt(i));
+			} else {
+				if( isBalanced(peek(), strExp.charAt(i)) ) {
+					pop();
+					if(ExpStack.isEmpty()) {
+						valid = true;
+					}
+				} else {
+					valid = false;
+				}
+			}
 		}
 		
-		
-	}
-
-	public boolean checkExpression() {
-		if(isEmpty()) {
-			return false;
+		if(!valid) {
+			System.out.println("Invalid !");
 		} else {
-//			for (int i = 0; i < this.stackLength; i++) {
-//				if (this.expression.charAt(i) == '(' || this.expression.charAt(i) == '{' || this.expression.charAt(i) == '['
-//						|| this.expression.charAt(i) == '<') {
-//					this.push(this.expression.charAt(i));
-//				} else {
-//					if (this.isBalanced(this.peek(), this.expression.charAt(i))) {
-//
-//						this.pop();
-//						
-//						if(isEmpty() ) {
-//							return true;
-//						}
-//					} else {
-//						return false;
-//					}
-//				}
-//			}
-			
+			System.out.println("Valid !");
 		}
+	}
+	
+	public boolean isBalanced(char open, char close) {
+		if(open == '(' && close == ')') {
+			return true;
+		} else if(open == '[' && close == ']') {
+			return true;
+		} else if(open == '{' && close == '}') {
+			return true;
+		} else if(open == '<' && close == '>') {
+			return true;
+		} 
+		
 		return false;
-	
 	}
-
-	private boolean isBalanced(char open, char close) {
-		if( open == '(' && close == ')') {
-			return true;
-		} else if( open == '[' && close == ']') {
-			return true;
-		} else if( open == '{' && close == '}') {
-			return true;
-		} else if( open == '<' && close == '>') {
-			return true;
-		} else {
-			return false;
+	
+	public void GetStackExp() {
+		for(int i = ExpStack.size() - 1;  i >= 0; i--) {
+			System.out.println("[" + i + "]\s" + ExpStack.get(i));
 		}
 	}
 	
-	private void push(char braces) {
-		
-		this.StackBraces.add(braces);
-
-	}
-
-	private char peek() {
-		return this.StackBraces.get(topIndex);
-	}
-
-	private void pop() {
-		//this.StackBraces[this.topIndex--] = ' ';
-	}
-
-	private boolean isEmpty() {
-		return this.topIndex == -1;
-	}
-
-	/* Don't need since we use Dynamic Array */
-	private static void isFull() {
-
-	}
-
-	public void getStack() {
-	
-		for (int i = this.StackBraces.size() - 1; i >= 0; i--) {
-			System.out.println(StackBraces.get(i));
+	public int GetStackExpSize() {
+		if(!ExpStack.isEmpty()) {
+			return ExpStack.size();	
 		}
-		
+		return 0;
+	}
+	
+	public void pop() {
+		if(!ExpStack.isEmpty()) {
+			ExpStack.remove(ExpStack.size() - 1);
+		}
+	}
+	
+	public char peek() {
+		if(!ExpStack.isEmpty()) {
+			return ExpStack.get(ExpStack.size() - 1);
+		} 
+		return 0;
 	}
 }
 
 public class StackExpChecker {
 	public static void main(String[] args) {
-		String exp = new String();
-
-		System.out.print("Input expression \nex.[(A+B)*{A-B}+<e,f>]:");
-		Scanner sc = new Scanner(System.in);
-		exp = sc.nextLine();
-
-		StackExp expInput = new StackExp(exp);
-		expInput.getStack();
 		
-		if(expInput.checkExpression()) {
-			System.out.println(expInput.expression + " is VALID !");	
-		} else {
-			System.out.println(expInput.expression + " is INVALID !");	
-		}
+		Scanner sc = new Scanner(System.in);
+		String inputExp = new String();
+				
+		System.out.println("Enter expression. \nEx: [{(A+B)*(C-D)+[<c,f>]}]:");
+		inputExp = sc.nextLine();
+		
+		
+		ExpStack Paranthesis = new ExpStack(inputExp);
+
+//		
+//		System.out.println("Stack Size:" + Paranthesis.GetStackExpSize());
+//		Paranthesis.GetStackExp();
+		
 		
 	}
 
